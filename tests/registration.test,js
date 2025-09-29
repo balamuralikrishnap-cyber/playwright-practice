@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const RegistrationPage = require('../pages/registrationPage');
+const RegistrationPage = require('../pages/profilePage');
+
 test.describe('Registration Page', () => {
 
     test.beforeEach(async ({ page }) => {
