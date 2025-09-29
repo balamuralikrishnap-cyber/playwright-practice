@@ -4,7 +4,7 @@ class ProfilePage extends BasePage {
     constructor(page) {
         super(page);
         this.profileHeader = '.main-header';
-        this.logoutButton = page.locator('//button[text()="Log out]');
+        this.logoutButton = '//button[text()="Log out"]'
     }
 
     async getProfileHeader() {

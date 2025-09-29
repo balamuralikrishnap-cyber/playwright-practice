@@ -1,0 +1,16 @@
+const { test, expect } = require('@playwright/test');
+const RegistrationPage = require('../pages/registrationPage');
+test.describe('Registration Page', () => {
+
+    test.beforeEach(async ({ page }) => {
+        const loginPage = new LoginPage(page);
+        await loginPage.navigate('https://demoqa.com/login');
+        await loginPage.login('testuser', 'Test@123');
+    });
+    test('should display registration form', async ({ page }) => {
+        const registrationPage = new RegistrationPage(page);
+       
+    });
+
+   
+});

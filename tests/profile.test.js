@@ -12,6 +12,7 @@ test.describe('Profile Page Tests', () => {
     test('Profile header is visible after login', async ({ page }) => {
         const profilePage = new ProfilePage(page);
         const header = await profilePage.getProfileHeader();
+        console.log(header); 
         expect(header).toBe('Profile');
     });
 });

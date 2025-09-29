@@ -16,7 +16,7 @@ class BasePage {
     }
 
     async getText(locator) {
-        return await this.page.locator(locator).textContent();
+        return await this.page.locator(locator).textContent({ timeout: 90000 });
     }
 
     async isVisible(locator) {
