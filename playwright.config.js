@@ -9,7 +9,6 @@ export default defineConfig({
     navigationTimeout: 60000, // per-navigation timeout
   },
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } },
-    { name: 'firefox', use: { browserName: 'firefox' } },
+    { name: 'chromium', use: { browserName: 'chromium' } }
   ],
 });
