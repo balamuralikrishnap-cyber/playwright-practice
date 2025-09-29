@@ -1,0 +1,194 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "adplus-dvertising" [ref=e6] [cursor=pointer]
+    - iframe [ref=e9]:
+      - iframe [ref=f1e3]:
+        - insertion [ref=f2e2]:
+          - iframe [ref=f2e5]:
+            
+  - generic [ref=e10]:
+    - banner [ref=e11]:
+      - link [ref=e12] [cursor=pointer]:
+        - /url: https://demoqa.com
+        - img [ref=e13] [cursor=pointer]
+    - generic [ref=e16]:
+      - generic [ref=e19]:
+        - generic [ref=e22] [cursor=pointer]:
+          - generic [ref=e23] [cursor=pointer]:
+            - img [ref=e25] [cursor=pointer]
+            - text: Elements
+          - img [ref=e30] [cursor=pointer]
+        - generic [ref=e36] [cursor=pointer]:
+          - generic [ref=e37] [cursor=pointer]:
+            - img [ref=e39] [cursor=pointer]
+            - text: Forms
+          - img [ref=e45] [cursor=pointer]
+        - generic [ref=e51] [cursor=pointer]:
+          - generic [ref=e52] [cursor=pointer]:
+            - img [ref=e54] [cursor=pointer]
+            - text: Alerts, Frame & Windows
+          - img [ref=e59] [cursor=pointer]
+        - generic [ref=e65] [cursor=pointer]:
+          - generic [ref=e66] [cursor=pointer]:
+            - img [ref=e68] [cursor=pointer]
+            - text: Widgets
+          - img [ref=e73] [cursor=pointer]
+        - generic [ref=e79] [cursor=pointer]:
+          - generic [ref=e80] [cursor=pointer]:
+            - img [ref=e82] [cursor=pointer]
+            - text: Interactions
+          - img [ref=e87] [cursor=pointer]
+        - generic [ref=e91]:
+          - generic [ref=e93] [cursor=pointer]:
+            - generic [ref=e94] [cursor=pointer]:
+              - img [ref=e96] [cursor=pointer]
+              - text: Book Store Application
+            - img [ref=e101] [cursor=pointer]
+          - list [ref=e106]:
+            - listitem [ref=e107] [cursor=pointer]:
+              - img [ref=e108] [cursor=pointer]
+              - generic [ref=e110] [cursor=pointer]: Login
+            - listitem [ref=e111] [cursor=pointer]:
+              - img [ref=e112] [cursor=pointer]
+              - generic [ref=e114] [cursor=pointer]: Book Store
+            - listitem [ref=e115] [cursor=pointer]:
+              - img [ref=e116] [cursor=pointer]
+              - generic [ref=e118] [cursor=pointer]: Profile
+            - listitem [ref=e119] [cursor=pointer]:
+              - img [ref=e120] [cursor=pointer]
+              - generic [ref=e122] [cursor=pointer]: Book Store API
+      - generic [ref=e123]:
+        - iframe [ref=e126]:
+          - generic [ref=f4e2]:
+            - iframe [ref=f4e5]:
+              - link [ref=f5e2] [cursor=pointer]:
+                - /url: javascript:window.open(window.clickTag)
+                - img [ref=f5e3] [cursor=pointer]
+            - generic [ref=f4e6]:
+              - generic:
+                - img [ref=f4e10] [cursor=pointer]
+                - button [ref=f4e13] [cursor=pointer]:
+                  - img [ref=f4e14] [cursor=pointer]
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - generic [ref=e130]: "Books :"
+            - generic [ref=e132]:
+              - textbox "Type to search" [ref=e133]
+              - img [ref=e137]
+            - generic [ref=e140]:
+              - generic [ref=e141]: "User Name :"
+              - generic [ref=e142]: testuser
+              - button "Log out" [ref=e143] [cursor=pointer]
+          - generic [ref=e144]:
+            - grid [ref=e145]:
+              - row "Image Title Author Publisher Action" [ref=e147]:
+                - columnheader "Image" [ref=e148] [cursor=pointer]:
+                  - generic [ref=e149] [cursor=pointer]: Image
+                - columnheader "Title" [ref=e151] [cursor=pointer]:
+                  - generic [ref=e152] [cursor=pointer]: Title
+                - columnheader "Author" [ref=e154] [cursor=pointer]:
+                  - generic [ref=e155] [cursor=pointer]: Author
+                - columnheader "Publisher" [ref=e157] [cursor=pointer]:
+                  - generic [ref=e158] [cursor=pointer]: Publisher
+                - columnheader "Action" [ref=e160] [cursor=pointer]:
+                  - generic [ref=e161] [cursor=pointer]: Action
+              - generic [ref=e163]:
+                - rowgroup [ref=e164]:
+                  - row [ref=e165]:
+                    - gridcell [ref=e166]
+                    - gridcell [ref=e168]
+                    - gridcell [ref=e170]
+                    - gridcell [ref=e172]
+                    - gridcell [ref=e174]
+                - rowgroup [ref=e176]:
+                  - row [ref=e177]:
+                    - gridcell [ref=e178]
+                    - gridcell [ref=e180]
+                    - gridcell [ref=e182]
+                    - gridcell [ref=e184]
+                    - gridcell [ref=e186]
+                - rowgroup [ref=e188]:
+                  - row [ref=e189]:
+                    - gridcell [ref=e190]
+                    - gridcell [ref=e192]
+                    - gridcell [ref=e194]
+                    - gridcell [ref=e196]
+                    - gridcell [ref=e198]
+                - rowgroup [ref=e200]:
+                  - row [ref=e201]:
+                    - gridcell [ref=e202]
+                    - gridcell [ref=e204]
+                    - gridcell [ref=e206]
+                    - gridcell [ref=e208]
+                    - gridcell [ref=e210]
+                - rowgroup [ref=e212]:
+                  - row [ref=e213]:
+                    - gridcell [ref=e214]
+                    - gridcell [ref=e216]
+                    - gridcell [ref=e218]
+                    - gridcell [ref=e220]
+                    - gridcell [ref=e222]
+            - generic [ref=e225]:
+              - button "Previous" [disabled] [ref=e227]
+              - generic [ref=e228]:
+                - generic [ref=e229]:
+                  - text: Page
+                  - spinbutton "jump to page" [ref=e231]: "1"
+                  - text: of
+                  - generic [ref=e232]: "1"
+                - combobox "rows per page" [ref=e234]:
+                  - option "5 rows" [selected]
+                  - option "10 rows"
+                  - option "20 rows"
+                  - option "25 rows"
+                  - option "50 rows"
+                  - option "100 rows"
+              - button "Next" [disabled] [ref=e236]
+            - generic: No rows found
+            - generic:
+              - generic: Loading...
+          - generic [ref=e237]:
+            - button "Go To Book Store" [ref=e239] [cursor=pointer]
+            - button "Delete Account" [ref=e241] [cursor=pointer]
+            - button "Delete All Books" [ref=e243] [cursor=pointer]
+        - iframe [ref=e247]:
+          - generic [ref=f6e2]:
+            - link "Advertisement" [ref=f6e4] [cursor=pointer]:
+              - /url: https://ad.doubleclick.net/pcs/click?xai=AKAOjsuvaQ7DIFXGdJ4S9BbykK7zk5FMKgyckBW1lJ0399HR-T1f62jlARwh7ngvpXOajBaoO-MoL6woiKyCjP7AH_yOrhWBM6taFVhnCDZ6LErip0FIg87pr8ZYUa9-yhdELjo3SSZ6KK7v2J-oxggzdRRsoYg-wJv44lp1_PXDfTNt2Ymyuw-OP-BqOksYFlgZa0d2oT4Vp9rGgs3iWdgpcyWOVEYcP9W43gdtY2s_uL5zOxYOADgjQq9ZWgv3vns906YrtoDO2uEb4AaeBKJ3W9JECOTALe2ggQEi9lrNEIh-1brKg7vytwt3L9f8hdq1_29jzlErH-BQ4lHayJXl2tOJthM7jTyjq70DDostfTyx4_ic_hvaoD0ElfWr8z3zESf6IfUXQ9xDmHWdi9b2moZWEJSYOU3ZsQfwe_OatgnydyN0wVyeKZMpnpnKguOu24ueqiB8nZ52p4EqCpbr77mw0jz4854VRgZtkQnrivGs7x8Lf-Pks0Q_xmfipfDWQGbw7lUH08s7UjYaKPjg8AjupmzELe6ODGG4bjiCh0cDObvkG8GH9vP-nrPq-H3ko_N-Ju53JoQStEfLUxNN7esKtZ2jdh7jHWSRDciiEP3-zSgc_7heUQzT2Y1uMOA7UBPIfj15k9cTmCF5GPd12keBOrYn3wh_PQM13LcSXNmZjmaLjDzWmAMR4Qm_cnoXfONkfzZKGblG-zACvzd70kU7SbQ9Fs18ERKUPoOiykyWtQ6iOadEt50IE8Lqg-pxlcRoCfa6WuJOm6IeS6oUljseXiIEqBg0l-U0uCTz8WEWnhkvr6bT3aoqbVsJj_rdsSUVpYBJcy4gGINKtCI-BTaCh29Mes17Bm1Kf2qt4OZ_A-asTCxZyw8JVKT7jHRcMwHFOsuFwDZaUUZqqQL7ZmLXu-gBhdpohps_w5k2KXj69QN6aLhEa6YHO74RNch6Y9GUgjxxV6byVNAOQm2IAdGmNkhMIMohPx2c5laUFkteo3NwTQzZ2LAb6TzbRQjCjOYmOMK8oF8wZEOh68eUrrKtua0iWU_l8Ntjx6b0O9uN7Oa_X-Cx1UaO-QzVttY-qGcfQNsR4rq-xFHJ2iT330vv5rP2Nk02Eh_ARRwL5vlXTfbYHLOOPH2wQIPL7hB1GWzxBjIdxWXfiyIok7QUFoUBDPlGct9QHVU9W0fF_qSLEA3DHdSYRvISVxRplnp74iydK4z049ZWOnXcvPZw7ZbsrEgEULlyQ26WbxBO6Ri1sAXESKvhJOtUThe30mwyc22KDpCuD3E35gsa6wCzzmrNT82-X7h8ShRB4EL6uufaQoMol-qVtrRgToPl7N3cmiwfB54dlv8HvXPbNSJp5_fu0O_COTn4IDcC7HQNGH8UYRPbUw1PnLzLRwCGq8o4fyMBj4iHruuMA7TB5eAcgcuY9714LoYM4bCcnly1IqFNkzTGQjY7KEhR_4k7C_NiQa4zbHhbt_iyDYENaOvGzpbWLDv_bh0z88CBwRdq3VDSkSEVTFOUyFO6XxOkDbVnVHkZhV8Lhio57MMzcez0YSrLhAr711FHE6Crr9nXWuXlS84uW4EbJMPnw7_CbmBO-hv3p2NErvIuDpPtUmJBQns7SRuAe7b7NQZJe6Eh3pQqalQaIAHVUsWS33KQl5XL3ebd3Y20GsUe2qOCJYkjQx3btFwDKYhvwZ8CovI0H5nM7uTPQY8hBfwkiVdQZ1zHFTlYAhz-cMn5mgvVwhbxWiuW3YMe4OqxmBXYOkLnJsj4ixu2N6S9cowbKeZ84SAXmrZAuVkEOFrHgAokhKMa7iz299hwMfL8n77quQVLQhDcQXedt9I-_L3G2pLgcfHznE2tJ6oMUXxuig0EV0XMAiiBAiu3iG1P__VLDLE0upFVP3AFmzMIbm_xwrJLTmuVpqCLRHG0S3QdbC47r02-NylYkKFOiys&sai=AMfl-YTtooc9C1qkeOx3sFAg7RVZU7Pjqs3cj_17daukTucgjI7KxWbmSUKBhBfeiFrvYEfYjVvc-gXvIMb0hIrJNMXmAM2Z-0dBriIxS4WihB5igqPxBHVH8vEhRJpDiVVC-RIlYa81_NMMSrYVQjwXyXhRrFshikwwRieizPOKR0NhOTs25hZOEbpsiLKMtMN9kTgco_nSoskE0N4yP805Ko5xQjKfFfsOFM9ukvFkVg9PvVT2HvS220L4pXqXexUYjv7hXTAW716H2FLE5nV42MJvAlrLQWFGMc5Ojvb6ZgA15GudP-oM0OXyNKSwbfJyBpDU48X762wWhL2JguPHFBYFcR37fY02HIkzFxQCDc8ezhBsmySC0z1N2sgyXmpjP-arlkzmCw0GCI-P_meywPC4f4rNihLVSqVRWPKry9aWy2RkF-GEXO9WrngzcIGlD20T5NGL65Lvh98dW8KcFX8P5s27YnckOIp2RKwCVDcy_00J6eug_GrpOOLZy5w1n9W9s11sR8AA7qEUq3x1xLKV51xKWwgDyGdwmVBo8PlwAPAD-AEbFJuLRdk3_M9gsWcV8iBptzZFtAuSuCfQsa6DZkMiQ_D6i8vbVdhsOiUKuSsu6c2dhYWpyO9_SMll8aHGzajl8kg_gg&sig=Cg0ArKJSzPIfLIItJ4JN&fbs_aeid=%5Bgw_fbsaeid%5D&crd=aHR0cHM6Ly9wYXlwYWwuY29t&urlfix=1&adurl=https://www.paypal.com/merchant-lending/loanbuilder%3Futm_campaign_name%3DLB_Display_Ads%26utm_campaign%3D701PV0000236ffGYAQ%26utm_source%3Ddisplay%26utm_medium%3Ddv360paid%26utm_content%3Dc12829_p1012282%26utm_audience%3Dnew%26utm_product%3Dlb%26pid%3D425271255%26dclid%3D%25edclid!%26gad_source%3D7
+              - img "Advertisement" [ref=f6e5] [cursor=pointer]
+            - generic [ref=f6e6]:
+              - generic:
+                - img [ref=f6e10] [cursor=pointer]
+                - button [ref=f6e13] [cursor=pointer]:
+                  - img [ref=f6e14] [cursor=pointer]
+      - generic [ref=e252]:
+        - img "Build PlayWright tests with AI" [ref=e254] [cursor=pointer]
+        - iframe [ref=e257]:
+          - generic [ref=f7e3]:
+            - link [ref=f7e4] [cursor=pointer]:
+              - /url: //www.admaster.cc/privacy
+              - img [ref=f7e5] [cursor=pointer]
+            - link "Monica Lewinsky, 51, Flaunts Her Huge Size In New Bikini Photos Monica Lewinsky, 51, Flaunts Her Huge Size In New Bikini Photos Folkaly" [ref=f7e7] [cursor=pointer]:
+              - /url: https://tracenep.admaster.cc/ju/ic?tn=2ce2e6e33746b4224011d22068a89c02&trackingid=da3b03484894028406215871af81071b&acid=30240&data=0DcuS1qDvoxWjzTdADHN-ei3wpDg62VdipZ3vYXMT5CHDxf9p0zEl4Ynea056uv8cGoZ_CjfSwpeFVWPB-Ww82JpUlPxKc6_7QJPDbObeTfNSXcr9D3JCbgXjFjpV8mIICzmkbEIiqUPSvRDjSJWcsSGRf1qfgQQIXc32EuantJgYEg2vEWJIbGiAIrmAVQWwc1gxIPiHMyN5EU6KPew0HsY1zIXwq_u57sd01Mz5sKI9nx9fC5XeHD9ObhAzAfhINxT-ufKcMsYKRWS9QgMvWTZ0sw1PKX0PE0_4iWDMyFPmARCMvTcMFXVC6OOeccieJFR-1G_jhL5xJlpddGk8fb6wHwj6VdmcEkbNo0gu1C25H0SbHASM19MejDRP0OY1EGWlXffeHspCb3Jph4IGrrocV-fUL5LkCWTP5RPP8YKJ9OLnC-v_g8uZuZQ0rvdblOVnILznBYxdEBd3JUfRvvzRUMfjLQIXExAFyytm8jGhgCylgSOUgK_l4J5gdTn3F1RGNVmbZOiixTrm2dK9Wj8yvx_GUKr06jhE924QnUwXsqXeVQYkGKQPm5SI2hsmZ30NvZwfzPQrtBYDGEjmqRSEHOVgHWmMPCs87nMXxKPQrmvNUbdb8O9rwjIx6fLSa9IffNzXwK60TFwPNMkBBGQg78EcaUTqA3Yzt2o4RiMrtL43fQTdqEeVoBhjSW_A3o9tGz4C_o_wp-Uag3BhjIcTvbvUtyzo_rM_WYROFnlFWk-rzmS8MvvoJ2Hs4--JEktcFnHB4ykkPde1B4vFkPEfrcpP-g9PrazuVmEUJROlY1s0LR1QQ3y2tkA3tgZDKuQ_tjYLeDXxp6ce8i2bjh7xeQq3EALctMGKCsezJBqTKrrJw05jRIMuZzRGLEPOshwxRXkzBhh5Zhk7hYwGkgWR8d0UmICA6xXkSjWy2LjQyu9DUvtYlboHG0eabHdseOxhzE-G7bpZ01DvL6f4J5wouZqT4nXwoscIdVgsaJ4D911deS9dHQL_yEb7hQ3zrhwUXyk7cWLHjLt86W-GaSazzh5NgmRiPuN5oCw9uMPF6l8GMa6CgtKZbAU1hiD5pLy23_s4xHZnfbFi8wGTqV0A3AeHjYkjXWSgI2MjewihSVQru5tQeTpPLc_W4_bekUcIdlxs1ZUIrctdkZn6CiCY_xTONmRHZKxi2QUJVozRLe4fnufAvzcazVyhZdnK8ZBsC_xNeMy6p0LCrS-4kUiqsoJlGMNPROVpvwMsmc11XDYUAz9kCQXgMRmThkG8_NfcnKAxHIAnaOpPdwSQOHBbtjaUEjcqDAFzjbFwRQ40njjyFryTe1XZOEMIUgZyR5TrWIrZ50fRQgJLuEuaRLQwC7Ik_s71x9mnXPPTl4kLfNnuTLyHb0dP7b_1wwoIpm9z8G_RIv0KgZzkgt_1bMysjlCQUmu9rr-zoQ16vZn-9aP5NjrZ3sIv3JRP9edHZTM4ni_aXJNcfEHjJq7_HvzFv9gr6RL2OXU8nlU7khXTUPbhuan7aHq0HpflBRWH75FBrKhSK07nnqfIC9D4hi7odyChXnaxytv5baq7Q6hazP0DW2OR0oj2POrb9nBXy3lLHU-mBaCvhmo_e7rBpYSh1lC7J33uy48zuC6RjCx6wp2Rl66ZW5Ie_UYHe5SZkgxPWv0BsSyVXCSSM1OCGN_h_iLtsPx48l42E_JoftTGP1XOrq0SDt4d_o7BzUlhasYIARxmFnJUGTkl7hzMMsVLpBBFli2JGw_bfmpttXp8alPOAacCj_FrQwHN-c0z0kUdWpT4_UYvEm-pNiWJQVWmYtzAoGD5Svh60xt-pdfdq0K2Ng_mHztLmAjgiOUIfv5e1kEFqUH4WdLm5LYUz-OI2TUUwlwrrSLvvHXYAqMXV2wIRrQg_vE8le6Nh0H&uid=mid_c019af04cd74a99be5003e6b4fdf8c83&mguid=&ap=0.110001&tid=72&gprice=FfIvb2JSjZzwreQXWNJgXvN4cwg4CM-UCMR5IbimWVQ&campaignid=3967817&google_click_url=https://adclick.g.doubleclick.net/aclk%3Fsa%3DL%26ai%3DCAeb2ctDZaOP5AaiKrr4P26ji4AqltoSEe8z8yrWgE8CNtwEQASDG-9Z5YMnW9IzkpMATyAEJ4AIAqAMByAMCqgTzAU_QvbMLeUj3K26Crz46FGxPNX750OXIQSRFoZDuhiz5EwEsBuwjlVXfxThNLpaKEpfCvR0KiuY0PMyAQjLnI1j9-jcuwXHZ00HFL9X6clHYZw9x6-WUuSme839_YKy-qUFIpyE2S0SvhJLi4RL52vf3yE_r2y6ItgeRaYrC1YJx-pLMNTOYEwJ_prophIn1n1uonBqFdLS4a90oDBm0kHsdPAXYu-i1TcRjA0u0BPTQ7PYZDMCwHZ3_xxozzCb2REdNClP3QPT56RbqqzosM4JS3nnmrNF7x-8FPAgaT-__5DV9gdNFmn_C081ll8HVj7-pweAEAYAGu_WK9-iq4LJsoAYhqAemvhuoB5bYG6gHqpuxAqgH_56xAqgH35-xAqgHrb6xAqgHv9OxAtgHANIIJgiAYRABMgKKAjoNgECAwICAgICogAKoA0i9_cE6WN_A76bZ_I8D8ggbYWR4LXN1YnN5bi0zNTIwNjE3MzQxNjY1NTky-gsCCAGADAGqDQJVU-INEwis5u-m2fyPAxUohcsBHVuUGKzqDRMIu-_wptn8jwMVKIXLAR1blBisiA7___________8B0BUBgBcBshcQGAwqCjYxNjg1NzY1MDVQAaoYFwl7FK5HBXz1QBIKNjE2ODU3NjUwNRgB%26num%3D1%26sig%3DAOD64_2eFYiOSL9FVz1cSXyYg7KfY6lCPw%26client%3Dca-pub-4573231550355221%26adurl%3D
+              - img "Monica Lewinsky, 51, Flaunts Her Huge Size In New Bikini Photos" [ref=f7e8] [cursor=pointer]
+              - heading "Monica Lewinsky, 51, Flaunts Her Huge Size In New Bikini Photos" [level=3] [ref=f7e9] [cursor=pointer]
+              - generic [ref=f7e10] [cursor=pointer]: Folkaly
+        - iframe [ref=e260]:
+          - generic [ref=f8e2]:
+            - iframe [ref=f8e5]:
+              - generic [ref=f9e2] [cursor=pointer]:
+                - generic:
+                  - img "US_GNA-1247_Wedding_Spotlight_HTML5_300x250 1"
+                - generic:
+                  - img "_300x250"
+            - generic [ref=f8e6]:
+              - generic:
+                - img [ref=f8e10] [cursor=pointer]
+                - button [ref=f8e13] [cursor=pointer]:
+                  - img [ref=f8e14] [cursor=pointer]
+    - contentinfo [ref=e261]:
+      - generic [ref=e262]: © 2013-2020 TOOLSQA.COM | ALL RIGHTS RESERVED.
+```

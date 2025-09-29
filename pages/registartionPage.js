@@ -1,5 +1,4 @@
 const BasePage = require('./basePage');
-
 class RegistrationPage extends BasePage {
     constructor(page) {
         super(page);
@@ -45,3 +44,4 @@ class RegistrationPage extends BasePage {
 }
 
 module.exports = RegistrationPage;
+
