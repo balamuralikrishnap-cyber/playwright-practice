@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-        # Node 18 ensures maximum compatibility
+        # Node 18 ensures compatibility with Playwright
 
       # 3️⃣ Cache npm dependencies
       - name: 3️⃣ Cache Node modules
@@ -84,12 +84,12 @@ jobs:
           key: ${{ runner.os }}-playwright-browsers
         # Speeds up CI by caching downloaded browsers
 
-      # 7️⃣ Install Playwright Browsers
+      # 7️⃣ Install Playwright browsers reliably
       - name: 7️⃣ Install Playwright Browsers
         run: |
           echo "Installing Playwright browsers with dependencies..."
-          npx playwright install --with-deps chromium firefox webkit --verbose
-        # Ensures all browsers installed reliably
+          npx playwright install --with-deps chromium firefox webkit
+        # Installs Chromium, Firefox, WebKit reliably
 
       # 8️⃣ Generate Test Plan (Planner)
       - name: 8️⃣ Generate Test Plan (Planner)
