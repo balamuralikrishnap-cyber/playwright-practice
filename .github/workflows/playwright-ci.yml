@@ -93,6 +93,7 @@ jobs:
             npx playwright test --browser "$BROWSER" --reporter=html --retries=2 --workers=2
           else
             npx playwright test --reporter=html --retries=2 --workers=2
+          fi
 
       # 9️⃣ Upload HTML Report with unique name
       - name: 9️⃣ Upload HTML Report
