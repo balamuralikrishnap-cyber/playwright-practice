@@ -84,12 +84,13 @@ jobs:
           echo "Installing Playwright browsers with dependencies..."
           npx playwright install --with-deps chromium firefox webkit
 
-      # 8️⃣ Run Playwright Tests
+      # 8️⃣ Run Playwright Tests with safe browser input
       - name: 8️⃣ Run Playwright Tests
         run: |
           echo "Running Playwright tests..."
-          if [ "${{ github.event.inputs.browser }}" != "" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
-            npx playwright test --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2 --workers=2
+          BROWSER="${{ github.event.inputs.browser || 'all' }}"
+          if [ "$BROWSER" != "all" ]; then
+            npx playwright test --browser "$BROWSER" --reporter=html --retries=2 --workers=2
           else
             npx playwright test --reporter=html --retries=2 --workers=2
 
