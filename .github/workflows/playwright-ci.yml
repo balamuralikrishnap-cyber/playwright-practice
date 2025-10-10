@@ -30,14 +30,12 @@ jobs:
       # 1️⃣ Checkout repository
       - name: 1️⃣ Checkout code
         uses: actions/checkout@v4
-        # Pulls repo code for tests
 
       # 2️⃣ Setup Node.js
       - name: 2️⃣ Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-        # Node 18 ensures compatibility with Playwright
 
       # 3️⃣ Cache npm dependencies
       - name: 3️⃣ Cache Node modules
@@ -45,12 +43,10 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-        # Speeds up CI by caching dependencies
 
       # 4️⃣ Install project dependencies
       - name: 4️⃣ Install dependencies
         run: npm ci
-        # Installs project dependencies
 
       # 5️⃣ Install system dependencies for Playwright (Ubuntu 24.04)
       - name: 5️⃣ Install system dependencies
@@ -74,7 +70,6 @@ jobs:
             libxrender1 \
             libexpat1 \
             libpango-1.0-0
-        # Installs required system libraries for browsers
 
       # 6️⃣ Cache Playwright Browsers
       - name: 6️⃣ Cache Playwright Browsers
@@ -82,51 +77,26 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-browsers
-        # Speeds up CI by caching downloaded browsers
 
-      # 7️⃣ Install Playwright browsers reliably
+      # 7️⃣ Install Playwright Browsers
       - name: 7️⃣ Install Playwright Browsers
         run: |
           echo "Installing Playwright browsers with dependencies..."
           npx playwright install --with-deps chromium firefox webkit
-        # Installs Chromium, Firefox, WebKit reliably
 
-      # 8️⃣ Generate Test Plan (Planner)
-      - name: 8️⃣ Generate Test Plan (Planner)
+      # 8️⃣ Run Playwright Tests
+      - name: 8️⃣ Run Playwright Tests
         run: |
-          echo "Generating AI test plan..."
-          npx @playwright/ai planner --url https://example.com --output ./plan.md
-        # Creates structured AI-generated test plan
-
-      # 9️⃣ Generate Tests from Plan (Generator)
-      - name: 9️⃣ Generate Tests (Generator)
-        run: |
-          echo "Generating Playwright tests from plan..."
-          npx @playwright/ai generator --plan ./plan.md --output ./tests
-        # Converts plan into runnable Playwright tests
-
-      # 🔟 Run Playwright Tests
-      - name: 🔟 Run Playwright Tests
-        run: |
-          echo "Running tests..."
+          echo "Running Playwright tests..."
           if [ "${{ github.event.inputs.browser }}" != "" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
-            npx playwright test ./tests --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2 --workers=2
+            npx playwright test --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2 --workers=2
           else
-            npx playwright test ./tests --reporter=html --retries=2 --workers=2
-        # Executes tests with retries, parallel execution, and browser selection
+            npx playwright test --reporter=html --retries=2 --workers=2
 
-      # 1️⃣1️⃣ Heal Failing Tests (Healer)
-      - name: 1️⃣1️⃣ Heal Failing Tests (Healer)
-        run: |
-          echo "Healing failing tests..."
-          npx @playwright/ai healer --tests ./tests --retries 2
-        # Automatically repairs failing tests
-
-      # 1️⃣2️⃣ Upload HTML Report
-      - name: 1️⃣2️⃣ Upload HTML Report
+      # 9️⃣ Upload HTML Report
+      - name: 9️⃣ Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
           path: playwright-report
-        # Uploads test report for review
