@@ -2,15 +2,17 @@ name: Playwright CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
-  inputs:
-    browser:
-      description: 'Browser to run tests'
-      required: true
-      default: chromium
+    inputs:
+      browser:
+        description: 'Browser to run tests'
+        required: true
+        default: chromium
 
 jobs:
   test:
