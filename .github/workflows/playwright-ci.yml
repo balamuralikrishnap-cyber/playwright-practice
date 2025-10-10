@@ -13,13 +13,12 @@ on:
   workflow_dispatch:
     inputs:
       browser:
-        description: 'Browser to run tests (chromium, firefox, webkit)'
+        description: 'Browser to run tests (chromium, firefox, webkit, all)'
         required: false
         default: all
   schedule:
     - cron: '0 2 * * *' # Runs every day at 2 AM UTC
 
-# Define jobs
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -54,28 +53,38 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      # 6️⃣ Run Playwright tests
+      # 6️⃣ Run Playwright AI Agents - Planner
+      - name: Generate Test Plan (Planner)
+        run: |
+          echo "Generating AI test plan..."
+          npx @playwright/ai planner --url https://example.com --output ./plan.md
+
+      # 7️⃣ Generate Playwright tests from plan (Generator)
+      - name: Generate Tests (Generator)
+        run: |
+          echo "Generating Playwright tests from plan..."
+          npx @playwright/ai generator --plan ./plan.md --output ./tests
+
+      # 8️⃣ Run Playwright tests
       - name: Run Playwright Tests
         run: |
+          echo "Running tests..."
           if [ "${{ github.event.inputs.browser }}" != "" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
-            npx playwright test --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2
+            npx playwright test ./tests --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2
           else
-            npx playwright test --reporter=html --retries=2
+            npx playwright test ./tests --reporter=html --retries=2
           fi
 
-      # 7️⃣ Upload HTML report
-      - name: Upload Test Report
+      # 9️⃣ Heal failing tests automatically (Healer)
+      - name: Heal Failing Tests (Healer)
+        run: |
+          echo "Healing failing tests..."
+          npx @playwright/ai healer --tests ./tests --retries 2
+
+      # 🔟 Upload HTML Report
+      - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: playwright-html-report
           path: playwright-report
-
-      # 8️⃣ Optional: Run Playwright Agents (Planner / Generator / Healer)
-      - name: Run Playwright Agents (Optional)
-        if: ${{ github.event.inputs.browser == '' || github.event.inputs.browser == 'all' }}
-        run: |
-          echo "This is where you would integrate AI agents if configured."
-          # npx @playwright/agent planner
-          # npx @playwright/agent generator
-          # npx @playwright/agent healer
