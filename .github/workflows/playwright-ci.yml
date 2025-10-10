@@ -16,7 +16,7 @@ on:
         required: false
         default: all
   schedule:
-    - cron: '0 2 * * *' # Runs every day at 2 AM UTC
+    - cron: '0 2 * * *' # Daily at 2 AM UTC
 
 jobs:
   test:
@@ -30,14 +30,14 @@ jobs:
       # 1️⃣ Checkout repository
       - name: 1️⃣ Checkout code
         uses: actions/checkout@v4
-        # Pulls the repo code so tests can run
+        # Pulls repo code for tests
 
       # 2️⃣ Setup Node.js
       - name: 2️⃣ Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
-        # Ensures Node.js environment is available
+        # Sets up Node.js environment
 
       # 3️⃣ Cache npm dependencies
       - name: 3️⃣ Cache Node modules
@@ -50,49 +50,59 @@ jobs:
       # 4️⃣ Install dependencies
       - name: 4️⃣ Install dependencies
         run: npm ci
-        # Installs project dependencies from package-lock.json
+        # Installs project dependencies
 
-      # 5️⃣ Install Playwright browsers & system dependencies
-      - name: 5️⃣ Install Playwright Browsers
-        run: npx playwright install --with-deps
-        # Installs Chromium, Firefox, WebKit, and required system libs
+      # 5️⃣ Cache Playwright Browsers
+      - name: 5️⃣ Cache Playwright Browsers
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-browsers
+        # Caches installed browsers for faster builds
 
-      # 6️⃣ Generate Test Plan (Planner)
-      - name: 6️⃣ Generate Test Plan (Planner)
+      # 6️⃣ Install Playwright browsers reliably
+      - name: 6️⃣ Install Playwright Browsers
+        run: |
+          echo "Installing Playwright browsers with dependencies..."
+          npx playwright install --with-deps chromium firefox webkit
+        # Ensures all browsers and system dependencies are installed
+
+      # 7️⃣ Generate Test Plan (Planner)
+      - name: 7️⃣ Generate Test Plan (Planner)
         run: |
           echo "Generating AI test plan..."
           npx @playwright/ai planner --url https://example.com --output ./plan.md
-        # Creates a structured test plan automatically
+        # Creates structured test plan
 
-      # 7️⃣ Generate Playwright Tests from Plan (Generator)
-      - name: 7️⃣ Generate Tests (Generator)
+      # 8️⃣ Generate Tests from Plan (Generator)
+      - name: 8️⃣ Generate Tests (Generator)
         run: |
           echo "Generating Playwright tests from plan..."
           npx @playwright/ai generator --plan ./plan.md --output ./tests
-        # Converts the plan into executable Playwright tests
+        # Converts plan into runnable Playwright tests
 
-      # 8️⃣ Run Playwright Tests
-      - name: 8️⃣ Run Playwright Tests
+      # 9️⃣ Run Playwright Tests
+      - name: 9️⃣ Run Playwright Tests
         run: |
           echo "Running tests..."
           if [ "${{ github.event.inputs.browser }}" != "" ] && [ "${{ github.event.inputs.browser }}" != "all" ]; then
             npx playwright test ./tests --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2
           else
             npx playwright test ./tests --reporter=html --retries=2
-        # Runs tests, supports browser selection via workflow_dispatch input, retries 2 times
+        # Executes tests with browser selection and retries
 
-      # 9️⃣ Heal Failing Tests (Healer)
-      - name: 9️⃣ Heal Failing Tests (Healer)
+      # 🔟 Heal Failing Tests (Healer)
+      - name: 🔟 Heal Failing Tests (Healer)
         run: |
           echo "Healing failing tests..."
           npx @playwright/ai healer --tests ./tests --retries 2
-        # Automatically fixes failing tests for improved stability
+        # Automatically repairs failing tests
 
-      # 🔟 Upload HTML Report
-      - name: 🔟 Upload HTML Report
+      # 1️⃣1️⃣ Upload HTML Report
+      - name: 1️⃣1️⃣ Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
           path: playwright-report
-        # Uploads test report for download and review
+        # Uploads test report for review
