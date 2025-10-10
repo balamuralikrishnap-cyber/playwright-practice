@@ -48,7 +48,7 @@ jobs:
       - name: 4️⃣ Install dependencies
         run: npm ci
 
-      # 5️⃣ Install system dependencies for Playwright (Ubuntu 24.04)
+      # 5️⃣ Install system dependencies for Playwright
       - name: 5️⃣ Install system dependencies
         run: |
           sudo apt-get update
@@ -93,10 +93,10 @@ jobs:
           else
             npx playwright test --reporter=html --retries=2 --workers=2
 
-      # 9️⃣ Upload HTML Report
+      # 9️⃣ Upload HTML Report with unique name
       - name: 9️⃣ Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-html-report
+          name: playwright-report-${{ matrix.browser }}-${{ github.run_id }}
           path: playwright-report
