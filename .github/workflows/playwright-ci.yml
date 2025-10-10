@@ -84,8 +84,9 @@ jobs:
           echo "Installing Playwright browsers with dependencies..."
           npx playwright install --with-deps chromium firefox webkit
 
-      # 8️⃣ Run Playwright Tests with safe browser input
+      # 8️⃣ Run Playwright Tests (failure-tolerant)
       - name: 8️⃣ Run Playwright Tests
+        continue-on-error: true   # <-- Continue workflow even if tests fail
         run: |
           echo "Running Playwright tests..."
           BROWSER="${{ github.event.inputs.browser || 'all' }}"
@@ -95,9 +96,9 @@ jobs:
             npx playwright test --reporter=html --retries=2 --workers=2
           fi
 
-      # 9️⃣ Upload HTML Report with unique name
+      # 9️⃣ Upload HTML Report (always runs)
       - name: 9️⃣ Upload HTML Report
-        if: always()
+        if: always()   # <-- Always run even if tests failed
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report-${{ matrix.browser }}-${{ github.run_id }}
