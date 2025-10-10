@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-        # Use Node 18 for maximum compatibility
+        # Node 18 ensures maximum compatibility
 
       # 3️⃣ Cache npm dependencies
       - name: 3️⃣ Cache Node modules
@@ -47,21 +47,34 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
         # Speeds up CI by caching dependencies
 
-      # 4️⃣ Install dependencies
+      # 4️⃣ Install project dependencies
       - name: 4️⃣ Install dependencies
         run: npm ci
         # Installs project dependencies
 
-      # 5️⃣ Install system dependencies for Playwright
+      # 5️⃣ Install system dependencies for Playwright (Ubuntu 24.04)
       - name: 5️⃣ Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
-            libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 \
-            libasound2 libpangocairo-1.0-0 libgtk-3-0 libxshmfence1 \
-            libx11-xcb1 libxrender1
-        # Ensures Ubuntu runner has all required libraries for browsers
+          sudo apt-get install -y --no-install-recommends \
+            libnss3 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libcups2 \
+            libdrm2 \
+            libxkbcommon0 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxrandr2 \
+            libgbm1 \
+            libpangocairo-1.0-0 \
+            libgtk-3-0 \
+            libxshmfence1 \
+            libx11-xcb1 \
+            libxrender1 \
+            libexpat1 \
+            libpango-1.0-0
+        # Installs required system libraries for browsers
 
       # 6️⃣ Cache Playwright Browsers
       - name: 6️⃣ Cache Playwright Browsers
@@ -69,21 +82,21 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-browsers
-        # Caches installed browsers for faster builds
+        # Speeds up CI by caching downloaded browsers
 
-      # 7️⃣ Install Playwright browsers reliably
+      # 7️⃣ Install Playwright Browsers
       - name: 7️⃣ Install Playwright Browsers
         run: |
           echo "Installing Playwright browsers with dependencies..."
           npx playwright install --with-deps chromium firefox webkit --verbose
-        # Installs Chromium, Firefox, WebKit with all required dependencies
+        # Ensures all browsers installed reliably
 
       # 8️⃣ Generate Test Plan (Planner)
       - name: 8️⃣ Generate Test Plan (Planner)
         run: |
           echo "Generating AI test plan..."
           npx @playwright/ai planner --url https://example.com --output ./plan.md
-        # Creates structured test plan
+        # Creates structured AI-generated test plan
 
       # 9️⃣ Generate Tests from Plan (Generator)
       - name: 9️⃣ Generate Tests (Generator)
@@ -100,7 +113,7 @@ jobs:
             npx playwright test ./tests --browser ${{ github.event.inputs.browser }} --reporter=html --retries=2 --workers=2
           else
             npx playwright test ./tests --reporter=html --retries=2 --workers=2
-        # Executes tests with browser selection, retries, and parallel execution
+        # Executes tests with retries, parallel execution, and browser selection
 
       # 1️⃣1️⃣ Heal Failing Tests (Healer)
       - name: 1️⃣1️⃣ Heal Failing Tests (Healer)
